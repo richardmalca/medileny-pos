@@ -1,0 +1,165 @@
+import { Form, Head } from '@inertiajs/react';
+import { useRef } from 'react';
+import SecurityController from '@/actions/App/Http/Controllers/Settings/SecurityController';
+import Heading from '@/components/heading';
+import InputError from '@/components/input-error';
+import PasswordInput from '@/components/password-input';
+import { Button } from '@/components/ui/button';
+import { useConfirmedForm } from '@/hooks/use-confirmed-form';
+import { Label } from '@/components/ui/label';
+import { edit } from '@/routes/security';
+import type { Props as ManageTwoFactorProps } from '@/components/manage-two-factor';
+import ManageTwoFactor from '@/components/manage-two-factor';
+
+type Props = {
+    passwordRules: string;
+} & ManageTwoFactorProps;
+
+export default function Security(props: Props) {
+    const passwordInput = useRef<HTMLInputElement>(null);
+    const currentPasswordInput = useRef<HTMLInputElement>(null);
+
+    const confirmed = useConfirmedForm({
+        confirm: {
+            title: '¿Cambiar tu contraseña?',
+            description:
+                'Usarás la nueva contraseña desde el próximo inicio de sesión. Este cambio no se puede deshacer.',
+            confirmLabel: 'Cambiar contraseña',
+        },
+        messages: {
+            loading: 'Cambiando contraseña…',
+            success: 'Contraseña actualizada',
+            error: 'No se pudo cambiar la contraseña',
+        },
+    });
+
+    return (
+        <>
+            <Head title="Seguridad" />
+
+            <h1 className="sr-only">Seguridad</h1>
+
+            <div className="grid items-start gap-4 lg:grid-cols-2">
+                <div className="space-y-6 rounded-2xl bg-card p-5 ring-1 ring-border">
+                    <Heading
+                        variant="small"
+                        title="Cambiar contraseña"
+                        description="Usa una contraseña larga y aleatoria para mantener tu cuenta segura"
+                    />
+
+                    <Form
+                        {...SecurityController.update.form()}
+                        {...confirmed}
+                        options={{
+                            preserveScroll: true,
+                        }}
+                        resetOnError={[
+                            'password',
+                            'password_confirmation',
+                            'current_password',
+                        ]}
+                        resetOnSuccess
+                        onError={(errors) => {
+                            confirmed.onError();
+
+                            if (errors.password) {
+                                passwordInput.current?.focus();
+                            }
+
+                            if (errors.current_password) {
+                                currentPasswordInput.current?.focus();
+                            }
+                        }}
+                        className="space-y-6"
+                    >
+                        {({ errors, processing }) => (
+                            <>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="current_password">
+                                        Contraseña actual
+                                    </Label>
+
+                                    <PasswordInput
+                                        id="current_password"
+                                        ref={currentPasswordInput}
+                                        name="current_password"
+                                        className="mt-1 block w-full"
+                                        autoComplete="current-password"
+                                        placeholder="Contraseña actual"
+                                    />
+
+                                    <InputError
+                                        message={errors.current_password}
+                                    />
+                                </div>
+
+                                <div className="grid gap-2">
+                                    <Label htmlFor="password">
+                                        Nueva contraseña
+                                    </Label>
+
+                                    <PasswordInput
+                                        id="password"
+                                        ref={passwordInput}
+                                        name="password"
+                                        className="mt-1 block w-full"
+                                        autoComplete="new-password"
+                                        placeholder="Nueva contraseña"
+                                        passwordrules={props.passwordRules}
+                                    />
+
+                                    <InputError message={errors.password} />
+                                </div>
+
+                                <div className="grid gap-2">
+                                    <Label htmlFor="password_confirmation">
+                                        Confirmar contraseña
+                                    </Label>
+
+                                    <PasswordInput
+                                        id="password_confirmation"
+                                        name="password_confirmation"
+                                        className="mt-1 block w-full"
+                                        autoComplete="new-password"
+                                        placeholder="Confirmar contraseña"
+                                        passwordrules={props.passwordRules}
+                                    />
+
+                                    <InputError
+                                        message={errors.password_confirmation}
+                                    />
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    <Button
+                                        disabled={processing}
+                                        data-test="update-password-button"
+                                    >
+                                        Guardar
+                                    </Button>
+                                </div>
+                            </>
+                        )}
+                    </Form>
+                </div>
+
+                <div className="rounded-2xl bg-card p-5 ring-1 ring-border">
+                    <ManageTwoFactor
+                        canManageTwoFactor={props.canManageTwoFactor}
+                        requiresConfirmation={props.requiresConfirmation}
+                        twoFactorEnabled={props.twoFactorEnabled}
+                    />
+                </div>
+            </div>
+        </>
+    );
+}
+
+Security.layout = {
+    breadcrumbs: [
+        {
+            title: 'Seguridad',
+            href: edit(),
+        },
+    ],
+};
