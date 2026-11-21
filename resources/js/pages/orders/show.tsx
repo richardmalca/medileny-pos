@@ -138,7 +138,7 @@ export default function OrdersShow({
                             <Button
                                 asChild
                                 size="lg"
-                                className="h-14 gap-2 rounded-2xl bg-brand-green text-base font-bold text-white hover:bg-brand-green/90"
+                                className="h-14 gap-2 rounded-2xl bg-brand-green text-base font-bold text-on-green hover:bg-brand-green/90"
                             >
                                 <Link href={checkout(order.id)}>
                                     <HandCoins className="size-5" />

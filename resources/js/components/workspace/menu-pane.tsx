@@ -28,7 +28,7 @@ function Tile({
                 wide
                     ? 'flex-col sm:flex-row sm:items-center'
                     : 'flex-col justify-between',
-                soldOut && 'opacity-50',
+                soldOut && 'opacity-70',
             )}
         >
             {single && quantityOf(product.variants[0].id) > 0 && (

@@ -6,7 +6,7 @@ import type { Thresholds } from '@/types/floor';
 
 const styles: Record<Urgency, string> = {
     ok: 'bg-brand-green/20 text-brand-green',
-    warn: 'bg-brand-yellow/60 text-accent-foreground',
+    warn: 'bg-brand-yellow text-on-pastel',
     alert: 'bg-destructive/15 text-destructive',
 };
 

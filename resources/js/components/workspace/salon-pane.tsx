@@ -137,7 +137,7 @@ export function SalonPane({
                                     onClick={() => onSelectLoose(order)}
                                     aria-pressed={order.id === activeOrderId}
                                     className={cn(
-                                        'bg-brand-gradient flex w-full items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-left text-white transition-transform duration-150 active:scale-[0.98]',
+                                        'bg-brand-gradient flex w-full items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-left text-on-gradient transition-transform duration-150 active:scale-[0.98]',
                                         order.id === activeOrderId &&
                                             'ring-2 ring-foreground ring-offset-2 ring-offset-background',
                                     )}
@@ -147,7 +147,7 @@ export function SalonPane({
                                             {order.label}
                                         </span>
                                         {order.waiting_since && (
-                                            <span className="text-[11px] text-white/85">
+                                            <span className="mt-0.5 inline-block rounded-full bg-card">
                                                 <ElapsedBadge
                                                     since={order.waiting_since}
                                                     now={now}

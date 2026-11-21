@@ -68,7 +68,7 @@ export function RoundCard({
             className={cn(
                 'flex flex-col rounded-3xl bg-card ring-1 ring-border',
                 compact ? 'gap-2 p-3' : 'gap-3 p-4',
-                round.cancelled_at && 'opacity-60',
+                round.cancelled_at && 'opacity-75',
             )}
         >
             <div className="flex flex-wrap items-center justify-between gap-2">

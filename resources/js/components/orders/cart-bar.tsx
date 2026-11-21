@@ -18,7 +18,7 @@ export function CartBar({
         <button
             type="button"
             onClick={onOpen}
-            className="bg-brand-gradient fixed inset-x-4 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-30 flex min-h-16 items-center justify-between rounded-2xl px-5 text-white shadow-xl transition-transform duration-150 active:scale-[0.98] md:right-8 md:bottom-8 md:left-auto md:w-96"
+            className="bg-brand-gradient fixed inset-x-4 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-30 flex min-h-16 items-center justify-between rounded-2xl px-5 text-on-gradient shadow-xl transition-transform duration-150 active:scale-[0.98] md:right-8 md:bottom-8 md:left-auto md:w-96"
         >
             <span className="flex items-center gap-3 font-bold">
                 <ShoppingBag className="size-6" />

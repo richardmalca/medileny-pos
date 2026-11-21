@@ -31,7 +31,7 @@ export function TableCard({
             <span
                 className={cn(
                     'flex items-center gap-1 text-sm font-semibold',
-                    order ? 'text-white/85' : 'text-muted-foreground',
+                    order ? 'text-on-gradient' : 'text-muted-foreground',
                 )}
             >
                 <Users className="size-4" />
@@ -49,18 +49,18 @@ export function TableCard({
                 prefetch
                 className={cn(
                     base,
-                    'bg-brand-gradient text-white ring-transparent',
+                    'bg-brand-gradient text-on-gradient ring-transparent',
                 )}
             >
                 {header}
                 <span className="flex flex-col gap-1">
                     {joined.length > 0 && (
-                        <span className="text-xs font-semibold text-white/85">
+                        <span className="text-xs font-semibold text-on-gradient">
                             Unida con {joined.join(' + ')}
                         </span>
                     )}
                     {order.kitchen_stage !== null && (
-                        <span className="w-fit rounded-full bg-white">
+                        <span className="w-fit rounded-full bg-card">
                             <KitchenBadge
                                 stage={order.kitchen_stage}
                                 label={order.kitchen_label}
@@ -68,12 +68,12 @@ export function TableCard({
                         </span>
                     )}
                     {order.type !== 'dine_in' && (
-                        <span className="text-xs font-semibold text-white/85">
+                        <span className="text-xs font-semibold text-on-gradient">
                             {order.type_label}
                         </span>
                     )}
                     <span className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="rounded-full bg-white">
+                        <span className="rounded-full bg-card">
                             <ElapsedBadge
                                 since={order.waiting_since}
                                 now={now}

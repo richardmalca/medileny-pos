@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 const styles: Record<string, string> = {
     admin: 'bg-primary/15 text-primary',
-    cashier: 'bg-brand-yellow/60 text-accent-foreground',
+    cashier: 'bg-brand-yellow text-on-pastel',
     waiter: 'bg-brand-green/20 text-brand-green',
     kitchen: 'bg-secondary text-secondary-foreground',
 };

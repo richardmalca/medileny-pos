@@ -123,11 +123,11 @@ export default function UsersIndex({ users }: { users: Member[] }) {
                                     prefetch
                                     className={cn(
                                         'flex items-center gap-4 rounded-3xl bg-card p-4 ring-1 ring-border transition-transform duration-150 active:scale-[0.98]',
-                                        !user.is_active && 'opacity-60',
+                                        !user.is_active && 'opacity-75',
                                     )}
                                 >
                                     <Avatar className="size-12">
-                                        <AvatarFallback className="bg-brand-gradient font-bold text-white">
+                                        <AvatarFallback className="bg-brand-gradient font-bold text-on-gradient">
                                             {getInitials(user.name)}
                                         </AvatarFallback>
                                     </Avatar>

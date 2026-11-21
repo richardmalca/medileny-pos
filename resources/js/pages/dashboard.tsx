@@ -138,13 +138,13 @@ function HourBars({ data }: { data: { hour: number; cents: number }[] }) {
                     title={`${item.hour}:00 · ${formatMoney(item.cents)}`}
                 >
                     <div
-                        className="w-full rounded-t-md bg-white/85"
+                        className="w-full rounded-t-md bg-on-gradient/85"
                         style={{
                             height: `${Math.max((item.cents / max) * 100, item.cents > 0 ? 8 : 3)}%`,
                             opacity: item.cents > 0 ? 1 : 0.35,
                         }}
                     />
-                    <span className="text-[10px] leading-none text-white/80">
+                    <span className="text-[10px] leading-none text-on-gradient">
                         {item.hour}
                     </span>
                 </div>
@@ -206,16 +206,16 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                     stats.sales_cents !== null ? (
                         <section
                             aria-label="Ventas de hoy"
-                            className="bg-brand-gradient flex flex-col gap-4 rounded-3xl p-5 text-white shadow-lg"
+                            className="bg-brand-gradient flex flex-col gap-4 rounded-3xl p-5 text-on-gradient shadow-lg"
                         >
                             <div>
-                                <p className="text-sm font-semibold text-white/85">
+                                <p className="text-sm font-semibold text-on-gradient">
                                     Ventas de hoy
                                 </p>
                                 <p className="display text-5xl md:text-6xl">
                                     {formatMoney(stats.sales_cents)}
                                 </p>
-                                <p className="text-sm text-white/85">
+                                <p className="text-sm text-on-gradient">
                                     {stats.sales_cents === 0
                                         ? 'Aún no hay cobros registrados hoy.'
                                         : 'Cobros de hoy, sin contar anulaciones.'}
@@ -226,20 +226,20 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                     ) : isKitchenOnly ? (
                         <section
                             aria-label="En cocina ahora"
-                            className="bg-brand-gradient flex flex-col gap-1 rounded-3xl p-5 text-white shadow-lg"
+                            className="bg-brand-gradient flex flex-col gap-1 rounded-3xl p-5 text-on-gradient shadow-lg"
                         >
-                            <p className="text-sm font-semibold text-white/85">
+                            <p className="text-sm font-semibold text-on-gradient">
                                 En cocina ahora
                             </p>
                             <p className="display text-6xl">{inKitchen}</p>
-                            <p className="text-sm text-white/85">
+                            <p className="text-sm text-on-gradient">
                                 {queue.new + queue.received} por preparar ·{' '}
                                 {queue.preparing} preparando · {queue.ready}{' '}
                                 listos
                             </p>
                             <Button
                                 asChild
-                                className="mt-3 h-11 w-fit gap-2 rounded-xl bg-white font-bold text-foreground hover:bg-white/90"
+                                className="mt-3 h-11 w-fit gap-2 rounded-xl bg-card font-bold text-foreground hover:bg-card/90"
                             >
                                 <Link href={kitchen()}>
                                     <ChefHat className="size-5" />
@@ -250,15 +250,15 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                     ) : (
                         <section
                             aria-label="Mis pedidos de hoy"
-                            className="bg-brand-gradient flex flex-col gap-1 rounded-3xl p-5 text-white shadow-lg"
+                            className="bg-brand-gradient flex flex-col gap-1 rounded-3xl p-5 text-on-gradient shadow-lg"
                         >
-                            <p className="text-sm font-semibold text-white/85">
+                            <p className="text-sm font-semibold text-on-gradient">
                                 Mis pedidos de hoy
                             </p>
                             <p className="display text-6xl">
                                 {stats.my_orders_today}
                             </p>
-                            <p className="text-sm text-white/85">
+                            <p className="text-sm text-on-gradient">
                                 {stats.open_orders} cuentas abiertas en el local
                             </p>
                         </section>
@@ -269,7 +269,7 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                             <>
                                 <Tile
                                     icon={Receipt}
-                                    tone="bg-brand-yellow/60 text-accent-foreground"
+                                    tone="bg-brand-yellow text-on-pastel"
                                     label="Pedidos de hoy"
                                     value={stats.orders_today}
                                     hint={`${stats.open_orders} abiertos`}
@@ -300,7 +300,7 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                             <>
                                 <Tile
                                     icon={Receipt}
-                                    tone="bg-brand-yellow/60 text-accent-foreground"
+                                    tone="bg-brand-yellow text-on-pastel"
                                     label="Pedidos del local"
                                     value={stats.orders_today}
                                     hint={`${stats.open_orders} abiertos`}
@@ -318,7 +318,7 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                             <>
                                 <Tile
                                     icon={Receipt}
-                                    tone="bg-brand-yellow/60 text-accent-foreground"
+                                    tone="bg-brand-yellow text-on-pastel"
                                     label="Por preparar"
                                     value={queue.new + queue.received}
                                     hint={`${queue.new} nuevos`}
@@ -340,7 +340,7 @@ export default function Dashboard({ stats }: { stats: Stats }) {
                         )}
                         <Tile
                             icon={ChefHat}
-                            tone="bg-brand-yellow/60 text-accent-foreground"
+                            tone="bg-brand-yellow text-on-pastel"
                             label="Cocina, promedio"
                             value={
                                 stats.kitchen_minutes === null

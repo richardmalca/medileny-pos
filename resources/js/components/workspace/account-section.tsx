@@ -56,9 +56,11 @@ type Props = {
 export function AccountSection({ summary, detail, ...rest }: Props) {
     if (!detail) {
         return (
-            <div className="bg-brand-gradient rounded-2xl p-3 text-white">
+            <div className="bg-brand-gradient rounded-2xl p-3 text-on-gradient">
                 <p className="display text-2xl leading-none">{summary.label}</p>
-                <p className="mt-1 text-sm text-white/85">Cargando cuenta…</p>
+                <p className="mt-1 text-sm text-on-gradient">
+                    Cargando cuenta…
+                </p>
             </div>
         );
     }
@@ -117,10 +119,10 @@ function Loaded({
     return (
         <>
             {/* Cabecera fija */}
-            <div className="bg-brand-gradient flex shrink-0 flex-col gap-1.5 rounded-2xl p-2.5 text-white shadow-sm">
+            <div className="bg-brand-gradient flex shrink-0 flex-col gap-1.5 rounded-2xl p-2.5 text-on-gradient shadow-sm">
                 <div className="flex items-start gap-2">
                     <div className="min-w-0 flex-1">
-                        <p className="text-[11px] font-semibold text-white/85">
+                        <p className="text-[11px] font-semibold text-on-gradient">
                             {order.type_label} · Cuenta #{order.number}
                         </p>
                         <p className="display truncate text-xl leading-tight">
@@ -132,7 +134,7 @@ function Loaded({
                             {formatMoney(order.total_cents)}
                         </p>
                         {order.paid_cents > 0 && (
-                            <p className="mt-0.5 text-[11px] text-white/85">
+                            <p className="mt-0.5 text-[11px] text-on-gradient">
                                 Pagado {formatMoney(order.paid_cents)}
                             </p>
                         )}
@@ -193,7 +195,7 @@ function Loaded({
                 <div className="flex flex-wrap items-center gap-1.5">
                     {open ? (
                         <>
-                            <span className="rounded-full bg-white">
+                            <span className="rounded-full bg-card">
                                 <ElapsedBadge
                                     since={order.opened_at}
                                     now={now}
@@ -203,7 +205,7 @@ function Loaded({
                             </span>
                         </>
                     ) : (
-                        <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-bold text-foreground">
+                        <span className="rounded-full bg-card px-2.5 py-0.5 text-xs font-bold text-foreground">
                             {order.status === 'paid'
                                 ? 'Cuenta pagada'
                                 : 'Cuenta cancelada'}
@@ -212,7 +214,7 @@ function Loaded({
                 </div>
 
                 {order.customer_name && (
-                    <p className="truncate text-xs text-white/90">
+                    <p className="truncate text-xs text-on-gradient">
                         {[
                             order.customer_name,
                             order.customer_phone,
@@ -298,7 +300,7 @@ function Loaded({
                             <Button
                                 type="button"
                                 size="lg"
-                                className="h-12 gap-2 rounded-xl bg-brand-green text-base font-bold text-white hover:bg-brand-green/90"
+                                className="h-12 gap-2 rounded-xl bg-brand-green text-base font-bold text-on-green hover:bg-brand-green/90"
                                 onClick={() => onCharge(order.id)}
                             >
                                 <HandCoins className="size-5" />

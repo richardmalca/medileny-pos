@@ -7,7 +7,7 @@ import type { FloorTable, Thresholds } from '@/types/floor';
 const urgencyDot = {
     ok: 'bg-brand-green',
     warn: 'bg-brand-yellow',
-    alert: 'bg-white ring-2 ring-destructive',
+    alert: 'bg-card ring-2 ring-destructive',
 };
 
 export function CompactTable({
@@ -42,7 +42,7 @@ export function CompactTable({
             className={cn(
                 'flex min-h-16 w-full min-w-0 flex-col justify-between gap-1 overflow-hidden rounded-xl p-2 text-left ring-1 ring-border transition-transform duration-150 active:scale-95',
                 order
-                    ? 'bg-brand-gradient text-white ring-transparent'
+                    ? 'bg-brand-gradient text-on-gradient ring-transparent'
                     : 'bg-card',
                 selected && 'bg-primary/10 ring-2 ring-primary',
                 dimmed && 'opacity-40',
@@ -57,7 +57,7 @@ export function CompactTable({
                 <span
                     className={cn(
                         'flex items-center gap-0.5 text-xs font-semibold',
-                        order ? 'text-white/85' : 'text-muted-foreground',
+                        order ? 'text-on-gradient' : 'text-muted-foreground',
                     )}
                 >
                     <Users className="size-3" />
@@ -67,7 +67,7 @@ export function CompactTable({
             {order ? (
                 <span className="flex flex-col gap-0.5 text-xs font-semibold">
                     {ready && (
-                        <span className="w-fit rounded-full bg-white px-1.5 py-0.5 text-brand-green">
+                        <span className="w-fit rounded-full bg-card px-1.5 py-0.5 text-brand-green">
                             Listo en cocina
                         </span>
                     )}

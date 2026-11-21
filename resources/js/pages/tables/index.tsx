@@ -101,7 +101,7 @@ export default function TablesIndex({
                         aria-labelledby={`zone-${zone.id}`}
                         className={cn(
                             'flex flex-col gap-3',
-                            !zone.is_active && 'opacity-60',
+                            !zone.is_active && 'opacity-75',
                         )}
                     >
                         <div className="flex items-center justify-between gap-3">
@@ -163,7 +163,7 @@ export default function TablesIndex({
                                         prefetch
                                         className={cn(
                                             'flex min-h-20 flex-col justify-between rounded-2xl bg-card p-3 ring-1 ring-border transition-transform duration-150 active:scale-[0.97]',
-                                            !table.is_active && 'opacity-50',
+                                            !table.is_active && 'opacity-70',
                                         )}
                                     >
                                         <span className="font-bold">

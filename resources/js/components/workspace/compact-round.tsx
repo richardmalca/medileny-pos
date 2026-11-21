@@ -42,7 +42,7 @@ export function CompactRound({
         <li
             className={cn(
                 'flex flex-col gap-1.5 rounded-xl bg-card p-2.5 ring-1 ring-border',
-                round.cancelled_at && 'opacity-60',
+                round.cancelled_at && 'opacity-75',
             )}
         >
             <div className="flex items-center gap-2">

@@ -48,7 +48,7 @@ const methodIcon: Record<PaymentMethod, typeof Banknote> = {
 const methodTone: Record<PaymentMethod, string> = {
     cash: 'bg-brand-green/20 text-brand-green',
     yape: 'bg-brand-orange/25 text-foreground',
-    plin: 'bg-brand-yellow/60 text-foreground',
+    plin: 'bg-brand-yellow text-on-pastel',
     card: 'bg-primary/15 text-primary',
 };
 
@@ -128,14 +128,14 @@ export function CashDesktop({
                     aria-label="Resumen de caja"
                     className="grid shrink-0 grid-cols-[1.4fr_repeat(4,1fr)] gap-3"
                 >
-                    <div className="bg-brand-gradient flex flex-col justify-center rounded-2xl p-4 text-white shadow-md">
-                        <p className="text-xs font-semibold text-white/85">
+                    <div className="bg-brand-gradient flex flex-col justify-center rounded-2xl p-4 text-on-gradient shadow-md">
+                        <p className="text-xs font-semibold text-on-gradient">
                             Efectivo esperado
                         </p>
                         <p className="display text-4xl leading-tight">
                             {formatMoney(session.expected_cents)}
                         </p>
-                        <p className="text-xs text-white/85">
+                        <p className="text-xs text-on-gradient">
                             Inicio {formatMoney(session.opening_cents)} · ventas
                             en efectivo {formatMoney(session.cash_sales_cents)}
                         </p>
@@ -172,7 +172,7 @@ export function CashDesktop({
                 </section>
             ) : (
                 <section className="flex shrink-0 items-center gap-4 rounded-2xl bg-card p-4 ring-1 ring-border">
-                    <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand-yellow/60">
+                    <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand-yellow">
                         <Wallet className="size-6" />
                     </span>
                     <div>
@@ -233,7 +233,7 @@ export function CashDesktop({
                                             </span>
                                         )}
                                     </span>
-                                    <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-green text-white">
+                                    <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-green text-on-green">
                                         <HandCoins className="size-4" />
                                     </span>
                                 </button>
@@ -261,7 +261,7 @@ export function CashDesktop({
                                     key={payment.id}
                                     className={cn(
                                         'flex items-center gap-2.5 rounded-xl bg-card px-3 py-2 ring-1 ring-border',
-                                        payment.voided_at && 'opacity-50',
+                                        payment.voided_at && 'opacity-70',
                                     )}
                                 >
                                     <span

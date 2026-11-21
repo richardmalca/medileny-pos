@@ -163,15 +163,15 @@ export default function CashIndex({
                 <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
                     <div className="flex flex-col gap-6">
                         {session ? (
-                            <section className="bg-brand-gradient flex flex-col gap-4 rounded-3xl p-5 text-white shadow-lg">
+                            <section className="bg-brand-gradient flex flex-col gap-4 rounded-3xl p-5 text-on-gradient shadow-lg">
                                 <div>
-                                    <p className="text-sm font-semibold text-white/85">
+                                    <p className="text-sm font-semibold text-on-gradient">
                                         Efectivo esperado
                                     </p>
                                     <p className="display text-5xl md:text-5xl">
                                         {formatMoney(session.expected_cents)}
                                     </p>
-                                    <p className="text-sm text-white/85">
+                                    <p className="text-sm text-on-gradient">
                                         Inicio{' '}
                                         {formatMoney(session.opening_cents)} ·
                                         Efectivo{' '}
@@ -182,9 +182,9 @@ export default function CashIndex({
                                     {methods.map((method) => (
                                         <li
                                             key={method.value}
-                                            className="rounded-2xl bg-white/15 p-3"
+                                            className="rounded-2xl bg-on-gradient/15 p-3"
                                         >
-                                            <p className="text-xs font-semibold text-white/85">
+                                            <p className="text-xs font-semibold text-on-gradient">
                                                 {method.label}
                                             </p>
                                             <p className="display text-xl">
@@ -201,7 +201,7 @@ export default function CashIndex({
                                     <Button
                                         type="button"
                                         size="lg"
-                                        className="h-12 gap-2 rounded-xl bg-white font-bold text-foreground hover:bg-white/90"
+                                        className="h-12 gap-2 rounded-xl bg-card font-bold text-foreground hover:bg-card/90"
                                         onClick={() => setClosing(true)}
                                     >
                                         <Lock className="size-5" />
@@ -285,7 +285,7 @@ export default function CashIndex({
                                             className={cn(
                                                 'flex items-center justify-between gap-3 rounded-2xl bg-card p-3 ring-1 ring-border',
                                                 payment.voided_at &&
-                                                    'opacity-50',
+                                                    'opacity-70',
                                             )}
                                         >
                                             <div className="min-w-0">

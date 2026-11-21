@@ -46,7 +46,7 @@ export function KitchenTicketCard({
             )}
         >
             {cancelled && (
-                <p className="rounded-lg bg-destructive px-2 py-1 text-center text-xs font-bold text-white">
+                <p className="rounded-lg bg-destructive px-2 py-1 text-center text-xs font-bold text-on-gradient">
                     ANULADO · no preparar
                 </p>
             )}
@@ -95,7 +95,7 @@ export function KitchenTicketCard({
                             </span>
                         )}
                         {item.note && (
-                            <span className="ml-1.5 rounded bg-brand-yellow/60 px-1.5 py-0.5 text-xs font-bold text-accent-foreground">
+                            <span className="ml-1.5 rounded bg-brand-yellow px-1.5 py-0.5 text-xs font-bold text-on-pastel">
                                 {item.note}
                             </span>
                         )}

@@ -164,15 +164,15 @@ export function CheckoutBody({
 
             <div className="grid gap-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-start">
                 <div className="flex flex-col gap-3">
-                    <section className="bg-brand-gradient flex flex-col gap-1 rounded-2xl p-4 text-white shadow-md">
-                        <p className="text-xs font-semibold text-white/85">
+                    <section className="bg-brand-gradient flex flex-col gap-1 rounded-2xl p-4 text-on-gradient shadow-md">
+                        <p className="text-xs font-semibold text-on-gradient">
                             {order.paid_cents > 0 ? 'Falta cobrar' : 'A cobrar'}
                         </p>
                         <p className="display text-5xl leading-none">
                             {formatMoney(order.remaining_cents)}
                         </p>
                         {order.paid_cents > 0 && (
-                            <p className="text-xs text-white/85">
+                            <p className="text-xs text-on-gradient">
                                 Total {formatMoney(order.total_cents)} · pagado{' '}
                                 {formatMoney(order.paid_cents)}
                             </p>
@@ -214,7 +214,7 @@ export function CheckoutBody({
                                     className={cn(
                                         'flex items-center justify-between gap-3 rounded-2xl bg-card p-3 ring-1 ring-border',
                                         payment.voided_at &&
-                                            'line-through opacity-50',
+                                            'line-through opacity-70',
                                     )}
                                 >
                                     <span>
@@ -428,7 +428,7 @@ export function CheckoutBody({
                     <Button
                         type="button"
                         size="lg"
-                        className="h-14 rounded-2xl bg-brand-green text-lg font-bold text-white hover:bg-brand-green/90"
+                        className="h-14 rounded-2xl bg-brand-green text-lg font-bold text-on-green hover:bg-brand-green/90"
                         disabled={!valid}
                         onClick={charge}
                     >

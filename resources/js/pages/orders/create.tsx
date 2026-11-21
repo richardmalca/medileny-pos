@@ -184,7 +184,7 @@ export default function OrdersCreate({ categories, tables, order }: Props) {
                                         className={cn(
                                             'flex w-full items-center gap-3 rounded-3xl bg-card p-3 text-left ring-1 ring-border transition-transform duration-150 active:scale-[0.98]',
                                             !product.is_available &&
-                                                'opacity-50',
+                                                'opacity-70',
                                         )}
                                     >
                                         <ProductVisual

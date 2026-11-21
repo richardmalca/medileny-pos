@@ -54,7 +54,7 @@ export function OpenCashCard({
             }
         >
             <div className={bare ? 'hidden' : 'flex items-center gap-3'}>
-                <span className="grid size-12 place-items-center rounded-2xl bg-brand-yellow/60">
+                <span className="grid size-12 place-items-center rounded-2xl bg-brand-yellow">
                     <Wallet className="size-6" />
                 </span>
                 <div>

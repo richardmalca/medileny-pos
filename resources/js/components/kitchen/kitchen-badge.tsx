@@ -9,7 +9,7 @@ const styles: Record<number, { className: string; icon: typeof Inbox }> = {
         icon: CircleCheck,
     },
     [STAGE.Preparing]: {
-        className: 'bg-brand-yellow/60 text-accent-foreground',
+        className: 'bg-brand-yellow text-on-pastel',
         icon: Flame,
     },
     [STAGE.Ready]: {

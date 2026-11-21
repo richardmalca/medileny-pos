@@ -47,7 +47,7 @@ export function ConfirmProvider({ children }: { children: ReactNode }) {
                             className={
                                 options?.destructive
                                     ? 'grid size-14 place-items-center rounded-2xl bg-destructive/15 text-destructive'
-                                    : 'bg-brand-gradient grid size-14 place-items-center rounded-2xl text-white shadow-md'
+                                    : 'bg-brand-gradient grid size-14 place-items-center rounded-2xl text-on-gradient shadow-md'
                             }
                         >
                             {options?.destructive ? (

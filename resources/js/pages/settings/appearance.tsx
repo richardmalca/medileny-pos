@@ -74,7 +74,7 @@ export default function Appearance() {
                                 className={cn(
                                     'grid size-10 place-items-center rounded-xl',
                                     enabled
-                                        ? 'bg-brand-green text-white'
+                                        ? 'bg-brand-green text-on-green'
                                         : 'bg-card ring-1 ring-border',
                                 )}
                             >
